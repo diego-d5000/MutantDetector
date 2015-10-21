@@ -1,4 +1,4 @@
-package edu.diego;
+package main.java.edu.diego;
 
 public class MutantAnalyzer {
     private static MutantAnalyzer instance = new MutantAnalyzer();
@@ -25,10 +25,14 @@ public class MutantAnalyzer {
     }
 
     private void checkNextNitrogenousBase(int i, int j, int k, int l) {
-        if (dna[i].charAt(j) == dna[k].charAt(l))
-            continuousNitrogenousBase++;
-        else
-            continuousNitrogenousBase = 0;
+        try {
+            if (dna[i].charAt(j) == dna[k].charAt(l))
+                continuousNitrogenousBase++;
+            else
+                continuousNitrogenousBase = 0;
+        }catch (Exception e){
+            return;
+        }
         if (continuousNitrogenousBase == 3) {
             mutantDna++;
             continuousNitrogenousBase = 0;
